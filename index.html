@@ -27,29 +27,29 @@
     </div>
 
     <div id="list">
-      <h1>My teams</h1>
+      <h1>My teams: {{totalTeams}}</h1>
       <!-- <p ng-repeat="team in teams">
         {{team.teamName}}, {{team.location}}, {{team.sport}}
       </p> -->
-      <h2 class="categories">Football</h2>
+      <h2 class="categories">Football: {{totalFootball}}</h2>
       <div>
         <p ng-repeat="team in football">
           {{$index + 1}}. {{team.location}} {{team.teamName}}
         </p>
       </div>
-      <h2 class="categories">Baseball</h2>
+      <h2 class="categories">Baseball: {{totalBaseball}}</h2>
       <div>
         <p ng-repeat="team in baseball">
           {{$index + 1}}. {{team.location}} {{team.teamName}}
         </p>
       </div>
-      <h2 class="categories">Basketball</h2>
+      <h2 class="categories">Basketball: {{totalBasketball}}</h2>
       <div>
         <p ng-repeat="team in basketball">
           {{$index + 1}}. {{team.location}} {{team.teamName}}
         </p>
       </div>
-      <h2 class="categories">Hockey</h2>
+      <h2 class="categories">Hockey: {{totalHockey}}</h2>
       <div>
         <p ng-repeat="team in hockey">
           {{$index + 1}}. {{team.location}} {{team.teamName}}

@@ -6,6 +6,8 @@ myApp.controller('mainController', ['$scope', function($scope){
   $scope.baseball = [];
   $scope.basketball = [];
   $scope.hockey = [];
+  // var totalTeams;
+
 
   $scope.addTeam = function(){
     var team = {
@@ -13,31 +15,32 @@ myApp.controller('mainController', ['$scope', function($scope){
       location: $scope.location,
       sport: $scope.sport
     };
-    if($scope.teams.length > 15){
+    if($scope.teams.length > 14){
       alert('You already have the max amount of teams');
-    } else if($scope.football){
-
-    }
-
-    if($scope.sport.toLowerCase() == 'football'){
-      console.log('football', $scope.football);
-      $scope.teams.push(team);
-      $scope.football.push(team);
-    } else if($scope.sport.toLowerCase() == 'baseball'){
-      console.log('baseball', $scope.baseball);
-      $scope.teams.push(team);
-      $scope.baseball.push(team);
-    } else if($scope.sport.toLowerCase() == 'basketball'){
-      console.log('basketball', $scope.basketball);
-      $scope.teams.push(team);
-      $scope.basketball.push(team);
-    } else if($scope.sport.toLowerCase() == 'hockey'){
-      console.log('hockey', $scope.hockey);
-      $scope.teams.push(team);
-      $scope.hockey.push(team);
+    } else if($scope.football.length > 4 || $scope.baseball.length > 4 || $scope.basketball.length > 4 || $scope.hockey.length > 4){
+      alert('You already have too many ' + this.sport + ' teams');
     } else {
-      alert('enter a valid sport');
+      if($scope.sport.toLowerCase() == 'football'){
+        $scope.teams.push(team);
+        $scope.football.push(team);
+        $scope.totalFootball = $scope.football.length;
+      } else if($scope.sport.toLowerCase() == 'baseball'){
+        $scope.teams.push(team);
+        $scope.baseball.push(team);
+        $scope.totalBaseball = $scope.baseball.length;
+      } else if($scope.sport.toLowerCase() == 'basketball'){
+        $scope.teams.push(team);
+        $scope.basketball.push(team);
+        $scope.totalBasketball = $scope.basketball.length;
+      } else if($scope.sport.toLowerCase() == 'hockey'){
+        $scope.teams.push(team);
+        $scope.hockey.push(team);
+        $scope.totalHockey = $scope.hockey.length;
+      } else {
+        alert('enter a valid sport');
+      }
     }
+    $scope.totalTeams = $scope.teams.length;
 
     console.log($scope.teams);
     $scope.location = '';
