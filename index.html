@@ -1,19 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>Simple draft app</title>
     <link rel="stylesheet." href="/css/master.css">
+    <script src="angular.min.js" charset="utf-8"></script>
     <script src="script.js" charset="utf-8"></script>
   </head>
-  <body>
-    <div class="form">
-      <label for="">Team Name: </label>
-      <input type="text" ng-model="teamName" name="" value="">
+  <body ng-controller="mainController">
+    <div id="form">
+      <div class="form">
+        <label for="">Location: </label>
+        <input type="text" ng-model="location" name="" value="">
+      </div>
+
+      <div class="form">
+        <label for="">Team Name: </label>
+        <input type="text" ng-model="teamName" name="" value="">
+      </div>
+
+      <div class="form">
+        <label for="">Sport: </label>
+        <input type="text" ng-model="sport" name="" value="">
+      </div>
+      <button type="button" ng-click="addTeam()" name="button">Add team</button>
     </div>
-    <div class="form">
-      <label for="">Sport: </label>
-      <input type="text" ng-model="sport" name="" value="">
+
+    <div id="list">
+      <h1>My teams</h1>
+      <!-- <p ng-repeat="team in teams">
+        {{team.teamName}}, {{team.location}}, {{team.sport}}
+      </p> -->
+      <h2 class="categories">Football</h2>
+      <div>
+        <p ng-repeat="team in football">
+          {{$index + 1}}. {{team.location}} {{team.teamName}}
+        </p>
+      </div>
+      <h2 class="categories">Baseball</h2>
+      <div>
+        <p ng-repeat="team in baseball">
+          {{$index + 1}}. {{team.location}} {{team.teamName}}
+        </p>
+      </div>
+      <h2 class="categories">Basketball</h2>
+      <div>
+        <p ng-repeat="team in basketball">
+          {{$index + 1}}. {{team.location}} {{team.teamName}}
+        </p>
+      </div>
+      <h2 class="categories">Hockey</h2>
+      <div>
+        <p ng-repeat="team in hockey">
+          {{$index + 1}}. {{team.location}} {{team.teamName}}
+        </p>
+      </div>
     </div>
   </body>
 </html>
